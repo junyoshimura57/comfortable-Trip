@@ -30,6 +30,9 @@ gem 'slim-rails'
 # layoutファイルのerbを自動修正させるため追加
 gem 'html2slim'
 
+# 日本語の辞書を追加
+gem 'rails-i18n'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
