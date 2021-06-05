@@ -15,7 +15,7 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
   # 環境変数を使用するように記載
-  password: <%= ENV['RAILS_DATABASE_PASSWORD'] %>
+  password: <%= ENV['DATABASE_DEV_PASSWORD'] %>
   host: localhost
 
 development:

@@ -25,12 +25,26 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
+# Railsのジェネレーターでもslimを使うため追加
+gem 'slim-rails'
+# layoutファイルのerbを自動修正させるため追加
+gem 'html2slim'
+
+# 日本語の辞書を追加
+gem 'rails-i18n'
+
+# deviseを追加
+gem 'devise'
+
+# 環境変数でmysqlのパスワードを管理するために追加
+gem 'dotenv-rails'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
 end
 
 group :development do
@@ -40,6 +54,17 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+
+  # Ruby用のrubocopとRails用のrubocop-railsを追加。
+  gem 'rubocop', require: false
+  gem 'rubocop-rails', require: false
+
+  gem 'annotate'
+
+  # エラーの画面にリクエスト情報、ローカル変数情報を出すために追加
+  gem 'better_errors'
+  # 上記エラー画面にirbをつけるために追加
+  gem 'binding_of_caller'
 end
 
 group :test do
@@ -51,4 +76,4 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
