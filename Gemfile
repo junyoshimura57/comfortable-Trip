@@ -33,6 +33,9 @@ gem 'html2slim'
 # 日本語の辞書を追加
 gem 'rails-i18n'
 
+# deviseを追加
+gem 'devise'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
@@ -54,6 +57,11 @@ group :development do
   gem 'rubocop-rails', require: false
 
   gem 'annotate'
+
+  # エラーの画面にリクエスト情報、ローカル変数情報を出すために追加
+  gem 'better_errors'
+  # 上記エラー画面にirbをつけるために追加
+  gem 'binding_of_caller'
 end
 
 group :test do
