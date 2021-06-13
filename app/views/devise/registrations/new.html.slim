@@ -1,24 +1,36 @@
 h2
-  | Sign up
+  | 新規登録
 = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
   = render "devise/shared/error_messages", resource: resource
-  .field
+  .form-group
+    = f.label :username
+    = f.text_field :username, autofocus: true
+  .form-group
     = f.label :email
-    br
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
+    = f.email_field :email, autocomplete: "email"
+  .form-group
     = f.label :password
     - if @minimum_password_length
-      em
+      en
         | (
         = @minimum_password_length
-        |  characters minimum)
-    br
+        |  以上)
     = f.password_field :password, autocomplete: "new-password"
-  .field
+  .form-group
     = f.label :password_confirmation
-    br
     = f.password_field :password_confirmation, autocomplete: "new-password"
+  .form-group
+    = f.label :living_prefecture
+    = f.text_field :living_prefecture
+  .form-group
+    = f.label :min_favorite_high_temperature
+    = f.text_field :min_favorite_high_temperature
+  .form-group
+    = f.label :max_favorite_high_temperature
+    = f.text_field :max_favorite_high_temperature
+  .form-group
+    = f.label :favorite_precipitation
+    = f.text_field :favorite_precipitation
   .actions
     = f.submit "Sign up"
 = render "devise/shared/links"
