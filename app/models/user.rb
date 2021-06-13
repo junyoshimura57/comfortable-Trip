@@ -4,6 +4,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  validates :username, presence: true
+  validates :living_prefecture, presence: true
+  validates :min_favorite_high_temperature, presence: true
+  validates :max_favorite_high_temperature, presence: true
+  validates :favorite_precipitation, presence: true
+
   # 都道府県をenumで定義
   enum living_prefecture:{
     "---":0,
