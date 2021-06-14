@@ -8,6 +8,5 @@ class ApplicationController < ActionController::Base
     added_attrs = [ :email, :username, :password, :password_confirmation, :living_prefecture,  :min_favorite_high_temperature, :max_favorite_high_temperature, :favorite_precipitation, :admin]
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
-    devise_parameter_sanitizer.permit :sign_in, keys: added_attrs
   end
 end

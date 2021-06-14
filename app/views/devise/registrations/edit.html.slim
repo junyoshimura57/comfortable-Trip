@@ -1,42 +1,30 @@
-h2
-  | Edit 
-  = resource_name.to_s.humanize
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    br
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    div
-      | Currently waiting confirmation for: 
-      = resource.unconfirmed_email
-  .field
-    = f.label :password
-    i
-      | (leave blank if you don't want to change it)
-    br
-    = f.password_field :password, autocomplete: "new-password"
-    - if @minimum_password_length
-      br
-      em
-        = @minimum_password_length
-        |  characters minimum
-  .field
-    = f.label :password_confirmation
-    br
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .field
-    = f.label :current_password
-    i
-      | (we need your current password to confirm your changes)
-    br
-    = f.password_field :current_password, autocomplete: "current-password"
-  .actions
-    = f.submit "Update"
-h3
-  | Cancel my account
-p
-  | Unhappy? 
-  = button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete
-= link_to "Back", :back
+.login-register-form
+  .login-register-form-inner
+    .card.mb-3
+      = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'card-body' }) do |f|
+        = render "devise/shared/error_messages", resource: resource
+        .form-group
+          = f.label :username, class: 'bmd-label-floating'
+          = f.text_field :username, autofocus: true, class: 'form-control'
+        .form-group
+          = f.label :email, class: 'bmd-label-floating'
+          = f.email_field :email, autocomplete: "email", class: 'form-control'
+        .form-group
+          = f.label :living_prefecture, class: 'bmd-label-floating'
+          = f.select :living_prefecture, User.living_prefectures.keys, {}, class: 'form-control'
+        .form-group
+          = f.label :min_favorite_high_temperature, class: 'bmd-label-floating'
+          = f.text_field :min_favorite_high_temperature, class: 'form-control'
+        .form-group
+          = f.label :max_favorite_high_temperature, class: 'bmd-label-floating'
+          = f.text_field :max_favorite_high_temperature, class: 'form-control'
+        .form-group
+          = f.label :favorite_precipitation, class: 'bmd-label-floating'
+          = f.text_field :favorite_precipitation, class: 'form-control'
+
+        = f.submit "更新する", class: 'btn btn-raised btn-primary'
+    .card
+      .card-body
+        | アカウントを削除しますか？
+        = button_to "アカウントを削除する", registration_path(resource_name), data: { confirm: "削除してよろしいでしょうか？" }, method: :delete
+        = link_to "戻る", :back
