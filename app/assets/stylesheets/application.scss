@@ -1,0 +1,34 @@
+$fa-font-path: '@fortawesome/fontawesome-free/webfonts';
+@import '@fortawesome/fontawesome-free/scss/fontawesome';
+@import '@fortawesome/fontawesome-free/scss/regular';
+@import '@fortawesome/fontawesome-free/scss/solid';
+@import '@fortawesome/fontawesome-free/scss/brands';
+
+@import 'bootstrap/scss/bootstrap';
+@import "now-ui-kit";
+
+body {
+  position: relative;
+  height: 100vh;
+  padding-left: 100px;
+}
+
+main {
+  padding-top: 50px;
+}
+
+.login-register-form {
+  position: relative;
+  height: 100vh;
+
+  .login-register-form-inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    @media screen and (max-width: 767px) {
+      width: 100%;
+    }
+  }
+}
